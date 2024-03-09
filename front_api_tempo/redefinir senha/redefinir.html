@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redefinir Senha</title>
+    <link rel="stylesheet" href="reset_password.css">
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="home">
+            <a href="../home/index.html#gerenciar"> <!-- Adicionando #gerenciar ao link -->
+                <img class="img" src="../assets/seta-esquerda.png" alt="Voltar">
+            </a>
+        </div>
+        
+        <div class="reset-password-container">
+
+            <h2>Redefinir Senha</h2>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="new-password">Nova Senha:</label>
+                <input type="password" id="new-password" name="new-password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm-password">Confirme a Nova Senha:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <p id="password-error" class="error-message"></p>
+            </div>
+
+            <div class="form-group">
+                <button type="button" onclick="resetPassword()">Redefinir Senha</button>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        function resetPassword() {
+            var newPassword = document.getElementById("new-password").value;
+            var confirmPassword = document.getElementById("confirm-password").value;
+            var errorElement = document.getElementById("password-error");
+
+            if (newPassword !== confirmPassword) {
+                errorElement.textContent = "As senhas não coincidem!";
+            } else {
+                errorElement.textContent = "";
+                // Aqui você pode adicionar a lógica para enviar a solicitação de redefinição de senha
+                // Exemplo: enviarAJAXParaRedefinirSenha();
+                alert("Solicitação de redefinição de senha enviada!");
+            }
+        }
+    </script>
+
+</body>
+</html>
